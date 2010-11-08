@@ -1,7 +1,7 @@
-# Bowler - Composable Scala Templating The Wicket Way
+# Bowler - Composable Scala/Scalate Templating The Wicket Way
 This project is built on top of [Scalate](http://scalate.fusesource.org/) and aims to bring some of the benefits of [Apache Wicket](http://wicket.apache.org) style composability and inheritance of templates to the Scala and Scalate world.
 
-You can build the project with [Simple Build Tool ("sbt")](), you will also need to pull down and build [Recursivity Commons](https://github.com/wfaler/recursivity-commons) first, which is a sister project with various utilities that Bowler uses. You will also need to add the scala-compiler.jar into the lib folder of the project.
+You can build the project with [Simple Build Tool ("sbt")](https://code.google.com/p/simple-build-tool/), you will also need to pull down and build [Recursivity Commons](https://github.com/wfaler/recursivity-commons) first, which is a sister project with various utilities that Bowler uses. You will also need to add the scala-compiler.jar into the lib folder of the project.
 
 At the moment, Bowler has been tested with [Mustache templates]() in Scalate only, but there is no reason to believe it shouldn't work with any other Scalate supported template style.
 
