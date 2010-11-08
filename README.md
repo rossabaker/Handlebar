@@ -6,7 +6,7 @@ You can build the project with [Simple Build Tool ("sbt")](), you will also need
 At the moment, Bowler has been tested with [Mustache templates]() in Scalate only, but there is no reason to believe it shouldn't work with any other Scalate supported template style.
 
 ## Bowler - the name
-Bowler is called Bowler as a little nod of appreciation as to where it owes it's lineage to.
+Bowler is called Bowler as a little nod of appreciation as to where it owes it's lineage to: A bowler is the guy in Cricket throwing the ball at the Wicket.
 
 ## Features
 *	Templating the Wicket Way: extend your class with the "Component"-class, and add a .mustache template with the same name and packaging as your class in the classpath.
