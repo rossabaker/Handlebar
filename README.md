@@ -20,5 +20,6 @@ The [Examples test source folder](https://github.com/wfaler/Bowler/tree/master/s
 Also, the best class to start looking at poking is probably the [ConcretePage.scala](https://github.com/wfaler/Bowler/blob/master/src/test/scala/com/recursivity/bowler/example/ConcretePage.scala) example class, which should look very, very familiar for anyone familiar with Apache Wicket.
 
 ## What about Wicket?
-I'm not looking to replace Wicket with this. It's not a full-fledged web framework by any means, and with almost 100% certainty never will be. It is simply a stab at bringing the templating style we love from Wicket to the templating world outside of the Wicket Web framework.
+I'm not looking to replace Wicket with this. I still love Wicket and will likely continue to be an avid Wicket user and proponent in the future.
+Bowler is not a full-fledged web framework by any means, and with almost 100% certainty never will be. It is simply a stab at bringing the templating style we love from Wicket to the templating world outside of the Wicket Web framework.
 Some may use it for plain templating, such as e-mail templates etc, others may use it to generate static html-pages, yet others may integrate it into their web frameworks. Only time will tell.
