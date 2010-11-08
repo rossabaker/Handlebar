@@ -18,11 +18,7 @@ class SimpleComponentTest extends FunSuite{
     assert(template.render.equals("Hello world"))
   }
 
-  test("simple nested component"){
-    val template = new NestedComponent(None)
-    template.add(new SimpleComponent(Some("nested")))
-    assert(template.render.equals("This is nested: Hello world"))
-  }
+
 
   test("test label"){
     val template = new NestedComponent(None)
