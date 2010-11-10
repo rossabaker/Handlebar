@@ -1,6 +1,7 @@
 package com.recursivity.bowler.example
 
-import com.recursivity.bowler.Component
+import com.recursivity.bowler.{SimpleRenderable, Component}
+import com.recursivity.commons.StringInputStreamReader
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,4 +11,10 @@ import com.recursivity.bowler.Component
  * To change this template use File | Settings | File Templates.
  */
 
-class ArticlePanel(id: Option[String]) extends Component(id)
+class ArticlePanel(id: Option[String]) extends Component(id) with StringInputStreamReader {
+  add(new SimpleRenderable(Some("title"), {"Are Serverside Web Frameworks Becoming Irrelevant?"}))
+
+  add(new SimpleRenderable(Some("body"), {
+    this.load(this.getClass.getResourceAsStream("/com/recursivity/bowler/example/article.html"))
+  }))
+}

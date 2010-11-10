@@ -1,11 +1,8 @@
 package com.recursivity.bowler
 
 /**
- * Created by IntelliJ IDEA.
- * User: wfaler
- * Date: Nov 7, 2010
- * Time: 1:27:24 AM
- * To change this template use File | Settings | File Templates.
+ * A very simple Renderable that takes an id, and any function returning a String.
+ * Renders the result of the function once render is called.
  */
 
 class SimpleRenderable(componentId: Option[String], text: => String) extends Renderable{

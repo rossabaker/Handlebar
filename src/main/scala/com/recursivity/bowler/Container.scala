@@ -4,11 +4,7 @@ import collection.mutable.{MutableList, HashMap}
 import reflect.BeanProperty
 
 /**
- * Created by IntelliJ IDEA.
- * User: wfaler
- * Date: Nov 7, 2010
- * Time: 3:32:42 AM
- * To change this template use File | Settings | File Templates.
+ * An attachable that may be the parent of other Attachables, for instance a parent node in a hierarchical tree of template id's, or for a listable.
  */
 
 class Container(componentId: Option[String]) extends Attachable {
@@ -23,6 +19,10 @@ class Container(componentId: Option[String]) extends Attachable {
 
   def getChildren = children.toList
 
+
+  /**
+   * adds a child Attachable to this Container
+   */
   def add(child: Attachable) {
     var index = -1
     try {
@@ -39,6 +39,10 @@ class Container(componentId: Option[String]) extends Attachable {
 
   def id = componentId
 
+
+  /**
+   * gets the Model for the template of this Container.
+   */
   def getModel: Map[String, Any] = {
     return getModel(children)
 
