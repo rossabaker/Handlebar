@@ -8,6 +8,8 @@ import org.fusesource.scalate.TemplateEngine
 
 object RenderEngine{
   val engine = new TemplateEngine
+  engine.allowCaching = true
+  engine.allowReload = false
 
   def getEngine = engine
 }

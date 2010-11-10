@@ -13,7 +13,7 @@ import collection.mutable.HashMap
  */
 
 class ConcretePageTest extends FunSuite{
-  val map = new HashMap[String, String]
+
 
   test("test concrete page"){
     val page = new ConcretePage
@@ -24,7 +24,7 @@ class ConcretePageTest extends FunSuite{
     val page = new ConcretePage with Cacheable{
       def get: Option[String] = {
         try{
-          return Some(map("concretePage"))
+          return Some(SimpleCache.map("concretePage"))
         }catch{
           case e: NoSuchElementException => {
             return None
@@ -32,18 +32,25 @@ class ConcretePageTest extends FunSuite{
         }
       }
 
-      def put(rendered: String) = map += "concretePage" -> rendered
+      def put(rendered: String) = SimpleCache.map += "concretePage" -> rendered
     }
 
     var i = 0
-    while(i < 40){
-      if(i == 20)
-        map.remove("concretePage")
+    var total: Long = 0
+    while(i < 1000){
+      SimpleCache.map.remove("concretePage")
       val start = System.currentTimeMillis
-      page.renderCached
-      println("render time: " + (System.currentTimeMillis - start))
+      page.render
+      total = total + (System.currentTimeMillis - start)
       i = i + 1
-    }    
+    }
+
+    println("Average render time over 100x: " + (total / 100))
 
   }
+}
+
+object SimpleCache{
+  val map = new HashMap[String, String]
+
 }
