@@ -8,7 +8,7 @@ import java.io.{PrintWriter, StringWriter}
 
 /**
  * A component with associated markup, or with a super class with associated template.<br/>
- * Knows how to render itself with the help of a ResourceLoader, and to Cache itself and retrieve itself from cache if it is an instance of Cacheable.
+ * Knows how to render itself with the help of a ResourceLoader.
  */
 
 abstract class Component(componentId: Option[String]) extends Container(componentId) with Renderable{
@@ -25,8 +25,6 @@ abstract class Component(componentId: Option[String]) extends Container(componen
 
   /**
    *  Renders the Component.
-   * Gets the result from Cache if the Component is Cacheable AND there is a Cache hit.
-   * Puts the result into Cache IF the Component is Cacheable AND there was no cache hit.
    */
   def render: String = {
 

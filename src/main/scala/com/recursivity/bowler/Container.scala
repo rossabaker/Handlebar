@@ -19,7 +19,15 @@ class Container(componentId: Option[String]) extends Attachable {
 
   def getChildren = children.toList
 
-
+  def get(id: String): Option[Attachable] = {
+    try{
+      val index = childIndex(id)
+      return children.get(index)
+    }catch{
+      case e: NoSuchElementException => {return None}
+    }
+  } 
+  
   /**
    * adds a child Attachable to this Container
    */
