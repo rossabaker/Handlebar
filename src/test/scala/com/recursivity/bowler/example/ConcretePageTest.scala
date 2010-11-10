@@ -40,7 +40,7 @@ class ConcretePageTest extends FunSuite{
       if(i == 20)
         map.remove("concretePage")
       val start = System.currentTimeMillis
-      page.render
+      page.renderCached
       println("render time: " + (System.currentTimeMillis - start))
       i = i + 1
     }    

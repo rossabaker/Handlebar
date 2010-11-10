@@ -54,7 +54,9 @@ class Container(componentId: Option[String]) extends Attachable {
     children.foreach(child => {
       visitLocale(child)
 
-      if (child.isInstanceOf[Renderable])
+      if (child.isInstanceOf[Cacheable]){
+        map += child.id.get -> child.asInstanceOf[Cacheable].renderCached
+      }else if (child.isInstanceOf[Renderable])
         map += child.id.get -> child.asInstanceOf[Renderable].render
       else if (child.isInstanceOf[Listable]) {
         traverseListable(child.asInstanceOf[Listable], map)

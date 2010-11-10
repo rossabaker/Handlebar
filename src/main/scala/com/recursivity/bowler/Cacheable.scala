@@ -10,4 +10,16 @@ package com.recursivity.bowler
 trait Cacheable extends Renderable{
   def put(rendered: String)
   def get: Option[String]
+
+
+  def renderCached: String = {
+    val option = get
+    if(option.isInstanceOf[Some[String]])
+      return option.get
+
+    var result: String = render
+
+    put(result)
+    return result
+  }
 }

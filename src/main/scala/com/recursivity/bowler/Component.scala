@@ -29,12 +29,6 @@ abstract class Component(componentId: Option[String]) extends Container(componen
    * Puts the result into Cache IF the Component is Cacheable AND there was no cache hit.
    */
   def render: String = {
-    if(this.isInstanceOf[Cacheable]){
-      val cacheable = this.asInstanceOf[Cacheable]
-      val option = cacheable.get
-      if(option.isInstanceOf[Some[String]])
-        return option.get
-    }
 
     val uri = resourceLoader.getUri
     val model = this.getModel
@@ -49,10 +43,6 @@ abstract class Component(componentId: Option[String]) extends Container(componen
     context.render(uri, model)
     val result = writer.toString
 
-    if(this.isInstanceOf[Cacheable]){
-      val cacheable = this.asInstanceOf[Cacheable]
-      cacheable.put(result)
-    }
     return result
   }
 
