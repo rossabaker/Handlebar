@@ -4,7 +4,7 @@ package com.recursivity.bowler
 import org.fusesource.scalate.support.{FileResourceLoader, Resource}
 import reflect.BeanProperty
 import org.fusesource.scalate.{DefaultRenderContext}
-import java.io.{PrintWriter, StringWriter}
+import java.io.{PrintWriter, Writer}
 
 /**
  * A component with associated markup, or with a super class with associated template.<br/>
@@ -26,7 +26,7 @@ abstract class Component(componentId: Option[String]) extends Container(componen
   /**
    *  Renders the Component.
    */
-  def render: String = {
+  def renderTo(writer: Writer): Unit = {
 
     val uri = resourceLoader.getUri
     val model = this.getModel
@@ -34,14 +34,10 @@ abstract class Component(componentId: Option[String]) extends Container(componen
     engine.resourceLoader = new FileResourceLoader {
       override def resource(uri: String): Option[Resource] = Some(Resource.fromText(uri, resourceLoader.getTemplate))
     }
-    val writer = new StringWriter
     val pw = new PrintWriter(writer)
     val context = new DefaultRenderContext(uri, engine, pw)
 
     context.render(uri, model)
-    val result = writer.toString
-
-    return result
   }
 
 }
